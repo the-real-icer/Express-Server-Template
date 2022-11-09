@@ -2,23 +2,22 @@ import mongoose from 'mongoose';
 import util from 'util';
 import redis from 'redis';
 
-import { cacheLogger } from '../utils/logger.js';
+import { cacheLogger, cacheStatusLogger, cacherErrorLogger } from '../utils/logger.js';
 
 const client = redis.createClient(process.env.REDIS_PORT, process.env.REDIS_HOST, {
     no_ready_check: true,
 });
 
-client.auth(process.env.REDIS_PASSWORD, (err) => {
-    if (err) console.log(err);
-});
+// client.auth(process.env.REDIS_PASSWORD, (err) => {
+//     if (err) console.log(err);
+// });
 
 client.on('error', (err) => {
-    console.log(`Error ${err}`);
+    cacherErrorLogger({ err });
 });
 
 client.on('connect', () => {
-    console.log('Connected to Redis');
-    console.log(`REDIS - ${process.env.REDIS_HOST}`);
+    cacheStatusLogger({ messsage: process.env.REDIS_HOST });
 });
 
 client.get = util.promisify(client.get);

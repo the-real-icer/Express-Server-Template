@@ -18,7 +18,7 @@ import globalErrorHandler from './controllers/errorController.js';
 import './services/database.js';
 
 // Redis Cache
-// import './services/cache.js';
+import './services/cache.js';
 
 const app = express();
 

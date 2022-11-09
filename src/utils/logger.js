@@ -8,6 +8,23 @@ export const cacheLogger = (options) => {
     );
 };
 
+export const cacheStatusLogger = (options) => {
+    console.log('-------------------------------');
+    console.log('');
+    console.log('Connected to Redis');
+    console.log(`REDIS - ${options.message}`);
+    console.log('');
+    console.log('----------------------');
+};
+
+export const cacherErrorLogger = (options) => {
+    console.log('-------------------------------');
+    console.log('');
+    console.log(`Error ${options.err}`);
+    console.log('');
+    console.log('----------------------');
+};
+
 export const databaseLogger = (options) => {
     // eslint-disable-next-line
     options.color === 'blue'
