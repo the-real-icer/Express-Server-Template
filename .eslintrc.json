@@ -19,6 +19,7 @@
         "no-restricted-syntax": 1,
         "import/extensions": [2, { "js": "always" }],
         "import/no-commonjs": 2,
-        "operator-linebreak": 0
+        "operator-linebreak": 0,
+        "prefer-destructuring": ["error", { "object": true, "array": false }]
     }
 }
