@@ -17,7 +17,7 @@ client.on('error', (err) => {
 });
 
 client.on('connect', () => {
-    cacheStatusLogger({ messsage: process.env.REDIS_HOST });
+    cacheStatusLogger({ message: process.env.REDIS_HOST });
 });
 
 client.get = util.promisify(client.get);
