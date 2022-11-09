@@ -12,13 +12,13 @@ import AppError from './utils/appError.js';
 import globalErrorHandler from './controllers/errorController.js';
 
 // Routers
-import userRouter from './routes/userRoutes.js';
+// import userRouter from './routes/userRoutes.js';
 
 // Mongo DB
 import './services/database.js';
 
 // Redis Cache
-import './services/cache.js';
+// import './services/cache.js';
 
 const app = express();
 
@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-app.use('/api/v1/users', userRouter);
+// app.use('/api/v1/users', userRouter);
 
 // Catch-All Error Route
 app.all('*', (req, res, next) => {
